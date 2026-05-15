@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.*?>
+
+    <BorderPane 
+        id="AnchorPane"
+        xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="1000" 
+            prefHeight="700"
+            style="-fx-background-color: #f5f5f5;"
+fx:controller="Controladores.PantallaRegistrarController">
+    <!-- ENCABEZADO -->
+    <top>
+        <VBox style="-fx-background-color: #388E3C;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Registro Agrícola"
+                   style="-fx-text-fill: white;
+                          -fx-font-size: 26px;
+                          -fx-font-weight: bold;"/>
+
+            <Label text="Registro de cultivos, responsables y labores"
+                   style="-fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <!-- PANEL IZQUIERDO -->
+    <left>
+        <VBox spacing="15"
+              prefWidth="250"
+              style="-fx-background-color: #e8f5e9;">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+
+            <Label text="Seleccione qué desea registrar"
+                   wrapText="true"
+                   style="-fx-font-size: 16px;
+                          -fx-font-weight: bold;"/>
+
+            <ComboBox fx:id="cbTipoRegistro"
+                      promptText="Seleccione una opción"
+                      prefWidth="200">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Cultivo"/>
+                        <String fx:value="Responsable"/>
+                        <String fx:value="Labor"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Button text="Mostrar Formulario"
+                    prefWidth="200"
+                    style="-fx-background-color: #4CAF50;
+                           -fx-text-fill: white;"/>
+
+        </VBox>
+    </left>
+
+    <!-- CONTENIDO CENTRAL -->
+    <center>
+
+        <StackPane>
+
+            <!-- FORMULARIO CULTIVOS -->
+            <VBox fx:id="panelCultivo"
+                  spacing="12"
+                  visible="true">
+
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Registro de Cultivo"
+                       style="-fx-font-size: 20px;
+                              -fx-font-weight: bold;"/>
+
+                <TextField promptText="Código"/>
+
+                <TextField promptText="Nombre del cultivo"/>
+
+                <TextField promptText="Variedad"/>
+
+                <DatePicker promptText="Fecha de siembra"/>
+
+                <ComboBox promptText="Tipo de cultivo">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Grano"/>
+                            <String fx:value="Frutal"/>
+                            <String fx:value="Hortaliza"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <TextField promptText="Tiempo estimado"/>
+
+                <Button text="Registrar Cultivo"
+                        prefWidth="180"
+                        style="-fx-background-color: #4CAF50;
+                               -fx-text-fill: white;"/>
+
+            </VBox>
+
+            <!-- FORMULARIO RESPONSABLE -->
+            <VBox fx:id="panelResponsable"
+                  spacing="12"
+                  visible="false">
+
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Registro de Responsable"
+                       style="-fx-font-size: 20px;
+                              -fx-font-weight: bold;"/>
+
+                <TextField promptText="Identificación"/>
+
+                <TextField promptText="Nombre"/>
+
+                <TextField promptText="Correo"/>
+
+                <TextField promptText="Teléfono"/>
+
+                <ComboBox promptText="Tipo de responsable">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Administrador"/>
+                            <String fx:value="Trabajador"/>
+                            <String fx:value="Supervisor"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <TextField promptText="Información extra"/>
+
+                <Button text="Registrar Responsable"
+                        prefWidth="200"
+                        style="-fx-background-color: #4CAF50;
+                               -fx-text-fill: white;"/>
+
+            </VBox>
+
+            <!-- FORMULARIO LABORES -->
+            <VBox fx:id="panelLabor"
+                  spacing="12"
+                  visible="false">
+
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Registro de Labores"
+                       style="-fx-font-size: 20px;
+                              -fx-font-weight: bold;"/>
+
+                <TextField promptText="Código"/>
+
+                <TextField promptText="Parcela"/>
+
+                <TextField promptText="Código del cultivo"/>
+
+                <TextField promptText="Identificación del responsable"/>
+
+                <DatePicker promptText="Fecha de realización"/>
+
+                <ComboBox promptText="Tipo de labor">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Riego"/>
+                            <String fx:value="Fertilización"/>
+                            <String fx:value="Poda"/>
+                            <String fx:value="Cosecha"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <TextArea promptText="Descripción"
+                          prefHeight="100"/>
+
+                <TextField promptText="Costo estimado"/>
+
+                <Button text="Registrar Labor"
+                        prefWidth="180"
+                        style="-fx-background-color: #4CAF50;
+                               -fx-text-fill: white;"/>
+
+            </VBox>
+
+        </StackPane>
+
+    </center>
+
+</BorderPane>
+

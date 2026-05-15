@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="650" prefWidth="1000" style="-fx-background-color: #f4f7f5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="Controladores.PantallaPrincipalController">
+
+            <!-- ENCABEZADO -->
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #4CAF50; -fx-padding: 20;">
+
+            <Label style="-fx-font-size: 26px;                           -fx-text-fill: white;                           -fx-font-weight: bold;" text="Sistema de Consultas Agrícolas" />
+
+            <Label style="-fx-text-fill: white;                           -fx-font-size: 14px;" text="Consultas de cultivos, responsables y labores" />
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO -->
+    <center>
+
+        <TabPane fx:id="tbpnconsulta" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- TAB CULTIVOS -->
+            <tabs>
+
+                <Tab fx:id="tbcultivo" text="Cultivos">
+
+                    <VBox spacing="15" style="-fx-padding: 20;">
+
+                        <HBox spacing="10">
+
+                            <TextField fx:id="txtBuscarCultivo" prefWidth="250" promptText="Buscar cultivo..." />
+
+                            <Button fx:id="Btnbuscarcultivo" onAction="#buscarCultivos" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
+                     <Button fx:id="registro1" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+
+                        </HBox>
+
+                        <TableView fx:id="tablaCultivos" prefHeight="500">
+
+                            <columns>
+
+                                <TableColumn fx:id="colCodigoCultivo" prefWidth="120" text="Código" />
+
+                                <TableColumn fx:id="colNombreCultivo" prefWidth="200" text="Nombre" />
+
+                                <TableColumn fx:id="colVariedadCultivo" prefWidth="180" text="Variedad" />
+
+                                <TableColumn fx:id="colFechaCultivo" prefWidth="180" text="Fecha Siembra" />
+
+                                <TableColumn fx:id="colTipoCultivo" prefWidth="150" text="Tipo" />
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+                </Tab>
+
+                <!-- TAB RESPONSABLES -->
+
+                <Tab fx:id="tabres" text="Responsables">
+
+                    <VBox spacing="15" style="-fx-padding: 20;">
+
+                        <HBox spacing="10">
+
+                            <TextField fx:id="txtBuscarResponsable" prefWidth="250" promptText="Buscar responsable..." />
+
+                            <Button fx:id="btnbuscarres" onAction="#buscarResponsables" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
+                     <Button fx:id="registro2" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+
+                        </HBox>
+
+                        <TableView fx:id="tablaResponsables" prefHeight="500">
+
+                            <columns>
+
+                                <TableColumn fx:id="colIdResponsable" prefWidth="180" text="Identificación" />
+
+                                <TableColumn fx:id="colNombreResponsable" prefWidth="220" text="Nombre" />
+
+                                <TableColumn fx:id="colCorreoResponsable" prefWidth="250" text="Correo" />
+
+                                <TableColumn fx:id="colTelefonoResponsable" prefWidth="180" text="Teléfono" />
+
+                                <TableColumn fx:id="colTipoResponsable" prefWidth="150" text="Tipo" />
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+                </Tab>
+
+                <!-- TAB LABORES -->
+
+                <Tab fx:id="tblab" text="Labores">
+
+                    <VBox spacing="15" style="-fx-padding: 20;">
+
+                        <HBox spacing="10">
+
+                            <TextField fx:id="txtBuscarLabor" prefWidth="250" promptText="Buscar labor..." />
+
+                            <Button fx:id="btnbuscarlabores" onAction="#buscarLabores" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
+                     <Button fx:id="registro3" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+
+                        </HBox>
+
+                        <TableView fx:id="tablaLabores" prefHeight="500">
+
+                            <columns>
+
+                                <TableColumn fx:id="colCodigoLabor" prefWidth="120" text="Código" />
+
+                                <TableColumn fx:id="colParcelaLabor" prefWidth="150" text="Parcela" />
+
+                                <TableColumn fx:id="colCultivoLabor" prefWidth="170" text="Código Cultivo" />
+
+                                <TableColumn fx:id="colResponsableLabor" prefWidth="180" text="Responsable" />
+
+                                <TableColumn fx:id="colFechaLabor" prefWidth="160" text="Fecha" />
+
+                                <TableColumn fx:id="colTipoLabor" prefWidth="180" text="Tipo Labor" />
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+                </Tab>
+
+            </tabs>
+
+        </TabPane>
+        </center>
+
+    </BorderPane>
