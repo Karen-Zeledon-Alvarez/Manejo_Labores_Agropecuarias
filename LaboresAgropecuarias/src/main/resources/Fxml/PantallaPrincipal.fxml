@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="650" prefWidth="1000" style="-fx-background-color: #f4f7f5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="Controladores.PantallaPrincipalController">
+<BorderPane prefHeight="650" prefWidth="1000" style="-fx-background-color: #f4f7f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controladores.PantallaPrincipalController">
 
             <!-- ENCABEZADO -->
     <top>
@@ -40,7 +40,7 @@
                             <TextField fx:id="txtBuscarCultivo" prefWidth="250" promptText="Buscar cultivo..." />
 
                             <Button fx:id="Btnbuscarcultivo" onAction="#buscarCultivos" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
-                     <Button fx:id="registro1" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+                     <Button fx:id="registro1" mnemonicParsing="false" onAction="#Registrarvista" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
 
                         </HBox>
 
@@ -57,6 +57,8 @@
                                 <TableColumn fx:id="colFechaCultivo" prefWidth="180" text="Fecha Siembra" />
 
                                 <TableColumn fx:id="colTipoCultivo" prefWidth="150" text="Tipo" />
+                                <TableColumn fx:id="colCategoriaCultivo"
+                                text="Categoría"/>
 
                             </columns>
 
@@ -77,23 +79,24 @@
                             <TextField fx:id="txtBuscarResponsable" prefWidth="250" promptText="Buscar responsable..." />
 
                             <Button fx:id="btnbuscarres" onAction="#buscarResponsables" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
-                     <Button fx:id="registro2" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+                     <Button fx:id="registro2" mnemonicParsing="false" onAction="#Registrarvista" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
 
                         </HBox>
 
-                        <TableView fx:id="tablaResponsables" prefHeight="500">
+                        <TableView fx:id="tablaResponsables" prefHeight="414.0" prefWidth="857.0">
 
                             <columns>
 
-                                <TableColumn fx:id="colIdResponsable" prefWidth="180" text="Identificación" />
+                                <TableColumn fx:id="colIdResponsable" prefWidth="118.40002822875977" text="Identificación" />
 
-                                <TableColumn fx:id="colNombreResponsable" prefWidth="220" text="Nombre" />
+                                <TableColumn fx:id="colNombreResponsable" prefWidth="138.1333465576172" text="Nombre" />
 
-                                <TableColumn fx:id="colCorreoResponsable" prefWidth="250" text="Correo" />
+                                <TableColumn fx:id="colCorreoResponsable" prefWidth="223.73336791992188" text="Correo" />
 
-                                <TableColumn fx:id="colTelefonoResponsable" prefWidth="180" text="Teléfono" />
+                                <TableColumn fx:id="colTelefonoResponsable" prefWidth="155.4666748046875" text="Teléfono" />
 
-                                <TableColumn fx:id="colTipoResponsable" prefWidth="150" text="Tipo" />
+                                <TableColumn fx:id="colTipoResponsable" prefWidth="124.26654052734375" text="Tipo" />
+                        <TableColumn fx:id="colTipoDerivado" prefWidth="199.73345947265625" text="Nombre finca o especialidad" />
 
                             </columns>
 
@@ -102,7 +105,42 @@
                     </VBox>
 
                 </Tab>
+                    <Tab text="Parcelas">
 
+                        <VBox spacing="15" style="-fx-padding: 20;">
+
+                            <HBox spacing="10">
+
+                            <TextField fx:id="txtBuscarParcela" prefWidth="250" promptText="Buscar parcela..." />
+
+                            <Button onAction="#buscarParcelas" style="-fx-background-color: #4CAF50;                            -fx-text-fill: white;" text="Buscar" />
+                     <Button fx:id="registro11" mnemonicParsing="false" onAction="#Registrarvista" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+
+                        </HBox>
+
+                    <TableView fx:id="tablaParcelas" prefHeight="500">
+
+                        <columns>
+
+                            <TableColumn fx:id="colCodigoParcela" prefWidth="120" text="Código" />
+
+                            <TableColumn fx:id="colNombreParcela" prefWidth="180" text="Nombre" />
+
+                             <TableColumn fx:id="colUbicacionParcela" prefWidth="180" text="Ubicación" />
+
+                            <TableColumn fx:id="colAreaParcela" prefWidth="153.06661987304688" text="Área" />
+
+                             <TableColumn fx:id="colTipoSuelo" prefWidth="151.73321533203125" text="Tipo Suelo" />
+
+                             <TableColumn fx:id="colEstadoParcela" prefWidth="172.26678466796875" text="Estado" />
+
+                         </columns>
+
+                     </TableView>
+
+                    </VBox>
+
+                </Tab>
                 <!-- TAB LABORES -->
 
                 <Tab fx:id="tblab" text="Labores">
@@ -114,7 +152,7 @@
                             <TextField fx:id="txtBuscarLabor" prefWidth="250" promptText="Buscar labor..." />
 
                             <Button fx:id="btnbuscarlabores" onAction="#buscarLabores" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
-                     <Button fx:id="registro3" mnemonicParsing="false" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+                     <Button fx:id="registro3" mnemonicParsing="false" onAction="#Registrarvista" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
 
                         </HBox>
 
