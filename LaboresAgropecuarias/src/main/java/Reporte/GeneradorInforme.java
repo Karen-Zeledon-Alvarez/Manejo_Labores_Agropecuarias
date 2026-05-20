@@ -15,10 +15,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import Model.Labores;
 
-/**
- *
- * @author tadan
- */
 public class GeneradorInforme {
   private final LaboresDBO laborDAO;
 
