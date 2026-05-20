@@ -32,7 +32,11 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import com.app.laboresagropecuarias.App;
+import java.io.File;
+import java.io.FileWriter;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Alert;
+import reporte.GeneradorInforme;
 /**
  * FXML Controller class
  *
@@ -175,6 +179,8 @@ public class PantallaPrincipalController implements Initializable {
     private Button registro11;
     @FXML
     private TableColumn<Cultivo, String> colCategoriaCultivo;
+    @FXML
+    private Button btnInforme;
     
     /**
      * Initializes the controller class.
@@ -243,6 +249,14 @@ public class PantallaPrincipalController implements Initializable {
             cellData.getValue().obtenerCategoria()
         )
         );
+        
+        btnInforme.setOnAction(e -> {
+         try {
+             generarInforme();
+         } catch (IOException ex) {
+             System.getLogger(PantallaPrincipalController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+         }
+     });
         cargarParcelas();
         
         cargarCultivos();
@@ -262,6 +276,18 @@ public class PantallaPrincipalController implements Initializable {
         }
     }
     
+    public void generarInforme() throws IOException{
+        GeneradorInforme texto=new GeneradorInforme();
+        texto.generarInforme();
+
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Informe");
+    alert.setHeaderText(null);
+    alert.setContentText("Informe TXT generado correctamente.");
+
+    alert.showAndWait();
+             
+    }
     private void cargarParcelas() {
 
     tablaParcelas.getItems().clear();
@@ -364,5 +390,9 @@ public class PantallaPrincipalController implements Initializable {
             parceladao.ListaParcela(texto));
         }
             }
+
+    @FXML
+    private void generarInforme(ActionEvent event) {
+    }
 
 }

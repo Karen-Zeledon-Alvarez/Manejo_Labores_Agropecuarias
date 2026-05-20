@@ -45,9 +45,9 @@ public class CultivoDBO {
         ps.setInt(1, cultivo.getCodigoCultivo());
         ps.setString(2, cultivo.getNombreCultivo());
         ps.setString(3, cultivo.getVariedad());
-        ps.setDate(3, java.sql.Date.valueOf(cultivo.getFechaSiembra()));
+        ps.setDate(4, java.sql.Date.valueOf(cultivo.getFechaSiembra()));
         ps.setString(5, cultivo.getTipoCultivo());
-        ps.setString(6, cultivo.obtenerCategoria());
+        ps.setString(6, cultivo.getCategoriaCultivo());
        
         int filas = ps.executeUpdate();
         
@@ -66,7 +66,7 @@ public class CultivoDBO {
         
         List<Cultivo> listaCultivo=new ArrayList<>();
         
-        String sql = "SELECT \"CodigoCultivo\", \"NombreCultivo\", \"Variedad\", \"FechaSiembra\", \"TipoCultivo\" "
+        String sql = "SELECT \"CodigoCultivo\", \"NombreCultivo\", \"Variedad\", \"FechaSiembra\", \"TipoCultivo\", \"CategoriaCultivo\" "
                 + "FROM \"Cultivo\" "
                 + "WHERE LOWER(\"NombreCultivo\") LIKE LOWER(?)";
         
@@ -82,7 +82,7 @@ public class CultivoDBO {
                 String categoria = rs.getString("CategoriaCultivo");
                 Cultivo c;
                 
-                if(categoria.equalsIgnoreCase("Anual")){
+                if(categoria != null && categoria.equalsIgnoreCase("Anual")){
 
                     c = new CultivoAnual();
 
@@ -94,7 +94,8 @@ public class CultivoDBO {
                     c.setNombreCultivo(rs.getString("NombreCultivo"));
                     c.setVariedad(rs.getString("Variedad"));
                     c.setFechaSiembra(rs.getDate("FechaSiembra").toLocalDate());
-                    c.setTipoCultivo(rs.getString("TipoCultivo"));    
+                    c.setTipoCultivo(rs.getString("TipoCultivo"));
+                    c.setCategoriaCultivo(categoria);
                     
                     
             
@@ -109,7 +110,7 @@ public class CultivoDBO {
     }
     
     public Cultivo ObtenerCultivo(int codigoCultivo){
-        String sql = "SELECT \"CodigoCultivo\", \"NombreCultivo\", \"Variedad\", \"FechaSiembra\", \"TipoCultivo\", \"TiempoEstimado\" "
+        String sql = "SELECT \"CodigoCultivo\", \"NombreCultivo\", \"Variedad\", \"FechaSiembra\", \"TipoCultivo\", \"CategoriaCultivo\" "
                    + "FROM \"Cultivo\" WHERE \"CodigoCultivo\" = ?";
         
         try(Connection conn = Conexionbdo.conectar();
@@ -146,10 +147,7 @@ public class CultivoDBO {
 
                 cultivo.setTipoCultivo(
                         rs.getString("TipoCultivo"));
-
-                cultivo.setTiempoEstimado(
-                        rs.getString("TiempoEstimado"));
-
+                cultivo.setCategoriaCultivo(categoria);
                         return cultivo;   
                     }
                 }
@@ -183,7 +181,7 @@ public class CultivoDBO {
     
     public boolean ModificarCultivo(Cultivo cultivo) throws SQLException{
         
-        String sql = "UPDATE \"Cultivo\" SET \"NombreCultivo\" = ?, \"Variedad\" = ?, \"FechaSiembra\" = ?, \"TipoCultivo\" = ?, \"TiempoEstimado\" = ? "
+        String sql = "UPDATE \"Cultivo\" SET \"NombreCultivo\" = ?, \"Variedad\" = ?, \"FechaSiembra\" = ?, \"TipoCultivo\" = ?, \"CategoriaCultivo\" = ? "
                    + "WHERE \"CodigoCultivo\" = ?";
         
         try(Connection conn = Conexionbdo.conectar();
@@ -194,7 +192,7 @@ public class CultivoDBO {
             ps.setString(2, cultivo.getVariedad());
             ps.setDate(3, java.sql.Date.valueOf(cultivo.getFechaSiembra()));
             ps.setString(4, cultivo.getTipoCultivo());
-            ps.setString(5, cultivo.getTiempoEstimado());
+            ps.setString(5, cultivo.getCategoriaCultivo());
             
             int filas = ps.executeUpdate();
             return filas > 0;

@@ -71,15 +71,9 @@
                         <TextField fx:id="txtVariedad" promptText="Variedad" />
 
                         <DatePicker fx:id="dpFechaSiembra" />
-                  <ComboBox fx:id="cbTipoCultivo" promptText="Tipo de responsable">
-                     <items>
-                        <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="Administrador" />
-                           <String fx:value="Trabajador" />
-                           <String fx:value="Supervisor" />
-                        </FXCollections>
-                     </items>
-                  </ComboBox>
+                  <ComboBox fx:id="cbTipoCultivo" promptText="Tipo de Cultivo"/>
+                     
+                  
 
                        <ComboBox fx:id="cmbCategoriaCultivo" promptText="Categoría" />
                         <Button fx:id="btnGuardarCultivo" style="-fx-background-color: #4CAF50;                                        -fx-text-fill: white;" text="Registrar Cultivo" />

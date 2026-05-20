@@ -57,8 +57,7 @@
                                 <TableColumn fx:id="colFechaCultivo" prefWidth="180" text="Fecha Siembra" />
 
                                 <TableColumn fx:id="colTipoCultivo" prefWidth="150" text="Tipo" />
-                                <TableColumn fx:id="colCategoriaCultivo"
-                                text="Categoría"/>
+                                <TableColumn fx:id="colCategoriaCultivo" text="Categoría" />
 
                             </columns>
 
@@ -153,6 +152,7 @@
 
                             <Button fx:id="btnbuscarlabores" onAction="#buscarLabores" style="-fx-background-color: #4CAF50;                                            -fx-text-fill: white;" text="Buscar" />
                      <Button fx:id="registro3" mnemonicParsing="false" onAction="#Registrarvista" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Registrar" />
+                     <Button fx:id="btnInforme" mnemonicParsing="false" onAction="#generarInforme" style="-fx-background-color: #4CAF50;" text="Generar Informe en .txt" textFill="WHITE" />
 
                         </HBox>
 

@@ -44,12 +44,12 @@ public class Labores {
         this.CodigoLabor = CodigoLabor;
     }
 
-    public Parcela getParcela() {
+    public Parcela getParcelaAso() {
         return ParcelaAso;
     }
 
-    public void setParcela(Parcela Parcela) {
-        this.ParcelaAso = Parcela;
+    public void setParcelaAso(Parcela ParcelaAso) {
+        this.ParcelaAso = ParcelaAso;
     }
 
     public Cultivo getCultivoAso() {

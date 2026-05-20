@@ -19,7 +19,7 @@ public abstract class Cultivo {
     private String Variedad;
     private LocalDate FechaSiembra;
     private String TipoCultivo;
-    private String TiempoEstimado;
+    protected String categoriaCultivo;
     
     
     public Cultivo(){
@@ -78,15 +78,17 @@ public abstract class Cultivo {
     public void setTipoCultivo(String TipoCultivo) {
         this.TipoCultivo = TipoCultivo;
     }
-
-    public String getTiempoEstimado() {
-        return TiempoEstimado;
+    
+    public String getCategoriaCultivo() {
+    return categoriaCultivo;
     }
-
-    public void setTiempoEstimado(String TiempoEstimado) {
-        this.TiempoEstimado = TiempoEstimado;
+    
+    public void setCategoriaCultivo(String categoriaCultivo) {
+    this.categoriaCultivo = categoriaCultivo;
     }
+    
     public abstract String obtenerCategoria();
+    
     @Override
     public String toString() {
     return NombreCultivo;

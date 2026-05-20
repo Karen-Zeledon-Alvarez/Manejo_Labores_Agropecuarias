@@ -1,0 +1,24 @@
+====================================================================
+               INFORME DE LABORES AGRÍCOLAS
+====================================================================
+Fecha de generación: 2026-05-19 21:55:26
+Total de labores: 2
+
+Código: 6
+Fecha: 2025-08-21
+Parcela: Lucia
+Cultivo: Cacao
+Responsable: Mario
+Tipo de Labor: Poda
+Costo Estimado: 10000
+Descripción: poda de cultivo
+--------------------------------------------------------------------
+Código: 7
+Fecha: 2026-05-15
+Parcela: Lucia
+Cultivo: Cacao
+Responsable: Alexa
+Tipo de Labor: Siembra
+Costo Estimado: 30000
+Descripción: siembra de cacao
+--------------------------------------------------------------------

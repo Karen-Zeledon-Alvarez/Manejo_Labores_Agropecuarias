@@ -1,0 +1,227 @@
+Tablas LaboresAgrarias
+CULTIVO
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: Cultivo; Type: TABLE; Schema: public; Owner: gamabasis_karencita
+--
+
+CREATE TABLE "Cultivo" (
+    "CodigoCultivo" integer NOT NULL,
+    "NombreCultivo" text,
+    "Variedad" text,
+    "FechaSiembra" date,
+    "TipoCultivo" text,
+    "CategoriaCultivo" text
+);
+
+
+ALTER TABLE "Cultivo" OWNER TO gamabasis_karencita;
+
+--
+-- Name: Cultivo Cultivo_pkey; Type: CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Cultivo"
+    ADD CONSTRAINT "Cultivo_pkey" PRIMARY KEY ("CodigoCultivo");
+
+
+--
+-- PostgreSQL database dump complete
+--
+LABORES
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: Labores; Type: TABLE; Schema: public; Owner: gamabasis_karencita
+--
+
+CREATE TABLE "Labores" (
+    "CodigoLabor" integer NOT NULL,
+    "CultivoAso" integer,
+    "ResponsableAso" integer,
+    "FechaLabor" date,
+    "TipoLabor" text,
+    "Descripcion" text,
+    "CostoEstimado" integer,
+    "ParcelaAso" integer
+);
+
+
+ALTER TABLE "Labores" OWNER TO gamabasis_karencita;
+
+--
+-- Name: Labores Labores_pkey; Type: CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Labores"
+    ADD CONSTRAINT "Labores_pkey" PRIMARY KEY ("CodigoLabor");
+
+
+--
+-- Name: Labores FKCultivo; Type: FK CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Labores"
+    ADD CONSTRAINT "FKCultivo" FOREIGN KEY ("CultivoAso") REFERENCES "Cultivo"("CodigoCultivo");
+
+
+--
+-- Name: Labores FKParcela; Type: FK CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Labores"
+    ADD CONSTRAINT "FKParcela" FOREIGN KEY ("ParcelaAso") REFERENCES "Parcela"("CodigoParcela");
+
+
+--
+-- Name: Labores FKResponsable; Type: FK CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Labores"
+    ADD CONSTRAINT "FKResponsable" FOREIGN KEY ("ResponsableAso") REFERENCES "Responsable"("Identificacion");
+
+
+--
+-- PostgreSQL database dump complete
+--
+PARCELA
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: Parcela; Type: TABLE; Schema: public; Owner: gamabasis_karencita
+--
+
+CREATE TABLE "Parcela" (
+    "CodigoParcela" integer NOT NULL,
+    "NombreParcela" text,
+    "Ubicacion" text,
+    "Area" text,
+    "TipoSuelo" text,
+    "EstadoParcela" text
+);
+
+
+ALTER TABLE "Parcela" OWNER TO gamabasis_karencita;
+
+--
+-- Name: Parcela PKParcela; Type: CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Parcela"
+    ADD CONSTRAINT "PKParcela" PRIMARY KEY ("CodigoParcela");
+
+
+--
+-- PostgreSQL database dump complete
+--
+RESPONSABLE
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: Responsable; Type: TABLE; Schema: public; Owner: gamabasis_karencita
+--
+
+CREATE TABLE "Responsable" (
+    "Identificacion" integer NOT NULL,
+    "Nombre" text,
+    "Correo" text,
+    "Telefono" integer,
+    "TipoResponsable" text,
+    "TipoDerivado" text
+);
+
+
+ALTER TABLE "Responsable" OWNER TO gamabasis_karencita;
+
+--
+-- Name: Responsable Responsable_pkey; Type: CONSTRAINT; Schema: public; Owner: gamabasis_karencita
+--
+
+ALTER TABLE ONLY "Responsable"
+    ADD CONSTRAINT "Responsable_pkey" PRIMARY KEY ("Identificacion");
+
+
+--
+-- PostgreSQL database dump complete
+--

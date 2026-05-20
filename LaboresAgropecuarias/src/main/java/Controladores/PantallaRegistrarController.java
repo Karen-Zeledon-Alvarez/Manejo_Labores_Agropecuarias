@@ -140,13 +140,38 @@ public class PantallaRegistrarController implements Initializable {
                 "Cosecha",
                 "Otro"
         ));
-        cbTipoCultivo.setItems(
-        FXCollections.observableArrayList(
-                "Cultivo Anual",
-                "Cultivo Perenne"
-                
-        )
+        cmbCategoriaCultivo.setOnAction(e -> {
+
+        String categoria = cmbCategoriaCultivo.getValue();
+
+        if(categoria == null){
+        return;
+        }
+
+            if(categoria.equals("Anual")){
+
+            cbTipoCultivo.setItems(
+            FXCollections.observableArrayList(
+                "Maiz",
+                "Frijol",
+                "Arroz",
+                "Hortalizas"
+                )
             );
+
+            }else{
+
+            cbTipoCultivo.setItems(
+            FXCollections.observableArrayList(
+                "Cafe",
+                "Cacao",
+                "Maracuya",
+                "Palma",
+                "Citricos"
+                )
+            );
+            }
+        });
         cbEstadoParcela.setItems(
         FXCollections.observableArrayList(
                 "Disponible",
@@ -382,7 +407,7 @@ public class PantallaRegistrarController implements Initializable {
         Parcela parcelaSeleccionado =
         cbParcelaLabor.getValue();
 
-        l.setParcela(parcelaSeleccionado);
+        l.setParcelaAso(parcelaSeleccionado);
 
 
         Cultivo cultivoSeleccionado =

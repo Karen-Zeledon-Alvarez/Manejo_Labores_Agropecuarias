@@ -54,7 +54,7 @@ public class LaboresDBO {
         ps.setString(5, labor.getTipoLabor());
         ps.setString(6, labor.getDescripcion());
         ps.setInt(7, labor.getCostoEstimado());
-       ps.setInt(8, labor.getParcela().getCodigoParcela());
+       ps.setInt(8, labor.getParcelaAso().getCodigoParcela());
        
         int filas = ps.executeUpdate();
         
@@ -103,7 +103,7 @@ public class LaboresDBO {
                 Labores c=new Labores();
                 
                     c.setCodigoLabor(rs.getInt("CodigoLabor"));
-                    c.setParcela(parcela);
+                    c.setParcelaAso(parcela);
                     c.setCultivoAso(cultivo);
                     c.setResponsableAso(responsable);
                     c.setFechaLabor(rs.getDate("FechaLabor"));    
